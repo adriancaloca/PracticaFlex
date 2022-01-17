@@ -1,0 +1,66 @@
+﻿@model ReporteViewModel
+@{
+    ViewData["Title"] = "Reporte Certificaciones";
+}
+<div class="row">
+  <div class="col-md-12 grid-margin">
+    <div class="row">
+      <div class="col-12 col-xl-8 mb-4 mb-xl-0">
+        <h6 class="font-weight-normal mb-0">Reporte empleados certificados</h6>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Seleccion de empleado a actualizar-->
+<div class="col-12 grid-margin stretch-card">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Generar reporte</h4>
+      <p class="card-description">
+        Selecciona<code>linea y estacion de trabajo</code>para generar el reporte</p>
+      <form asp-action="Reporte" class="form-inline">
+          <div class="form-group">
+              <label asp-for="Linea" class="form-label"></label>
+              <select id="lp" asp-for="Linea" asp-items="@Model.LineasProduccion" class="form-select"></select>
+              <span asp-validation-for="Linea" class="text-danger"></span>
+          </div>
+          <div class="form-group">
+              <label asp-for="Estacion" class="form-label"></label>
+              <select id="et" asp-for="Estacion" asp-items="@Model.EstacionesTrabajo" class="form-select"></select>
+              <span asp-validation-for="Estacion" class="text-danger"></span>
+          </div>
+          <div class="form-group">
+              <label asp-for="Supervisor" class="form-label"></label>
+              <select id="sp" asp-for="Supervisor" asp-items="@Model.Supervisores" class="form-select">
+                  <option disabled selected>Selecciona un supervisor</option>
+              </select>
+              <span asp-validation-for="Supervisor" class="text-danger"></span>
+          </div>
+          <div class="form-group">
+              <label asp-for="Turno" class="form-label"></label>
+              <select id="t" asp-for="Turno" asp-items="@Model.Turnos" class="form-select">
+                  <option disabled selected>Selecciona un turno</option>
+              </select>
+              <span asp-validation-for="Turno" class="text-danger"></span>
+          </div>
+        <button type="submit" class="btn btn-primary mx-1 mt-2">Enviar</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let select = document.querySelector('#lp');
+            select.removeAttribute("multiple");
+            select = document.querySelector('#et');
+            select.removeAttribute("multiple");
+            select = document.querySelector('#sp');
+            select.removeAttribute("multiple");
+            select = document.querySelector('#t');
+            select.removeAttribute("multiple");
+        });
+    </script>
+}

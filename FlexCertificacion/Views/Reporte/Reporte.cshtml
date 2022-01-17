@@ -1,0 +1,116 @@
+﻿@model ResultadoReporteModel
+@{
+    ViewData["Title"] = "Reporte";
+}
+<div class="row">
+  <div class="col-md-12 grid-margin">
+    <div class="row">
+      <div class="col-12 col-xl-8 mb-4 mb-xl-0">
+        <h3 class="font-weight-bold">Reporte certificaciones</h3>
+        <h6 class="font-weight-normal mb-0"></h6>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <p class="card-title">Personal Certificado</p>
+        <div class="row">
+          <div class="col-12">
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                       <th>Nomina</th>
+                       <th>Nombre</th>
+                       <th>Supervisor</th>
+                       <th>Fecha certificado</th>
+                       <th>Turno</th>
+                   </tr>
+                </thead>
+                <tbody>
+                  @foreach (var empleado in Model.Certificados)
+                    {
+                        <tr>
+                            <td>@empleado.Id</td>
+                            <td>@empleado.Nombre</td>
+                            <td>@empleado.Supervisor</td>
+                            <td>@empleado.Fecha.Date</td>
+                            <td>@empleado.Turno</td>
+                        </tr>
+                    }
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <p class="card-title">Personal con certificacion expirada</p>
+        <div class="row">
+          <div class="col-12">
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                       <th>Nomina</th>
+                       <th>Nombre</th>
+                       <th>Supervisor</th>
+                       <th>Fecha certificado</th>
+                       <th>Turno</th>
+                   </tr>
+                </thead>
+                <tbody>
+                  @foreach (var empleado in Model.CertificadosExpirado)
+                    {
+                        <tr>
+                            <td>@empleado.Id</td>
+                            <td>@empleado.Nombre</td>
+                            <td>@empleado.Supervisor</td>
+                            <td>@empleado.Fecha</td>
+                            <td>@empleado.Turno</td>
+                        </tr>
+                    }
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <p class="card-title">Personal en entrenamiento</p>
+        <div class="row">
+          <div class="col-12">
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                       <th>Nomina</th>
+                       <th>Nombre</th>
+                       <th>Supervisor</th>
+                       <th>Fecha certificado</th>
+                       <th>Turno</th>
+                   </tr>
+                </thead>
+                <tbody>
+                  @foreach (var empleado in Model.Entrenamiento)
+                    {
+                        <tr>
+                            <td>@empleado.Id</td>
+                            <td>@empleado.Nombre</td>
+                            <td>@empleado.Supervisor</td>
+                            <td>@empleado.Fecha</td>
+                            <td>@empleado.Turno</td>
+                        </tr>
+                    }
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+﻿@model Empleado
+@{
+    ViewData["Title"] = "Eliminar supervisor";
+}
+
+<div class="row">
+  <div class="col-md-12 grid-margin">
+    <div class="row">
+      <div class="col-12 col-xl-8 mb-4 mb-xl-0">
+        <h3 class="font-weight-bold">Borrar supervisor</h3>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Formulario registro -->
+<div class="row">
+  <div class="col-12 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title"></h4>
+        <p class="card-description">¿Estas seguro de que deseas eliminar a @Model.Nombre @Model.Apepat</p>
+        <form asp-action="BorrarEmpleado">
+            <input type="hidden" asp-for="Id"/>
+            <button type="submit" class="btn btn btn-danger btn-sm">Borrar</button>
+            <a asp-action="Index" class="btn btn-secondary btn-sm">Cancelar</a>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

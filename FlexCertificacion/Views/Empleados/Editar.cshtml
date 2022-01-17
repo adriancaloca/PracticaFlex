@@ -1,0 +1,60 @@
+﻿@model Empleado
+@{
+    ViewData["Title"] = "Editar supervisor";
+}
+<div class="row">
+  <div class="col-md-12 grid-margin">
+    <div class="row">
+      <div class="col-12 col-xl-8 mb-4 mb-xl-0">
+        <h3 class="font-weight-bold">Nuevo empleado</h3>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Formulario registro -->
+<div class="row">
+  <div class="col-12 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title"></h4>
+        <p class="card-description">Registro de nuevo supervisor</p>
+        <form asp-action="Editar">
+            <input type="hidden" asp-for="Id"/>
+          <div class="form-group">
+            <label asp-for="Nombre" class="form-label"></label>
+            <input type="text" asp-for="Nombre" class="form-control" />
+            <span asp-validation-for="Nombre" class="text-danger"></span>
+          </div>
+          <div class="form-group">
+            <label asp-for="Apepat" class="form-label"></label>
+            <input type="text" asp-for="Apepat" class="form-control" />
+            <span asp-validation-for="Apepat" class="text-danger"></span>
+          </div>
+          <div class="form-group">
+            <label asp-for="Apemat" class="form-label"></label>
+            <input type="text" asp-for="Apemat" class="form-control" />
+            <span asp-validation-for="Apemat" class="text-danger"></span>
+          </div>
+          <div class="form-group">
+            <label asp-for="Id_Turno" class="form-label"></label>
+            <select asp-for="Id_Turno" class="form-select">
+                <option value="@Model.Id_Turno">Seleccionar opcion</option>
+                <option value="1">Matutino</option>
+                <option value="2">Vespertino</option>
+                <option value="3">Noche</option>
+            </select>
+            <span asp-validation-for="Id_Turno" class="text-danger"></span>
+          </div>
+            <input type="hidden" asp-for="Id_Puesto" class="form-control" value=@Model.Id_Puesto/>
+            <input type="hidden" asp-for="Id_Supervisor" class="form-control" value=@Model.Id_Supervisor/>
+            <button type="submit" class="btn btn-primary mr-2">Enviar</button>
+            <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}

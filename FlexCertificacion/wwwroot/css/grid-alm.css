@@ -1,0 +1,96 @@
+.product-grid{
+    text-align: center;
+    margin: 0 10px;
+    border-radius: 5px;
+    border: 1px solid #eee;
+    transition: all 0.3s ease;
+    min-height: 100%;
+}
+.product-grid:hover{ box-shadow: 0 0 10px -3px rgba(0,0,0,0.2); }
+.product-grid .product-image{
+    border-radius: 5px;
+    position: relative;
+}
+.product-grid .product-image a.image{ display: block; }
+.product-grid .product-image img{
+    width: 100%;
+    height: auto;
+}
+.product-grid .product-sale-label{
+    color: #fff;
+    background-color: #6CC282;
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: capitalize;
+    padding: 5px 10px 4px;
+    border-radius: 5px;
+    position: absolute;
+    top: 15px;
+    right: -10px;
+}
+.product-grid .product-error-label{
+    color: #fff;
+    background-color: #c63312;
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: capitalize;
+    padding: 5px 10px 4px;
+    border-radius: 5px;
+    position: absolute;
+    top: 15px;
+    right: -10px;
+}
+.product-grid .product-content{ padding: 20px 15px 15px; }
+.product-grid .title{
+    font-size: 20px;
+    font-weight: 400;
+    text-transform: capitalize;
+    margin: 0 0 15px;
+}
+.product-grid .title a{
+    color: #364a15;
+    transition: all 0.3s ease 0s;
+}
+.product-grid .title a:hover{ color: #6CC282; }
+.product-grid .price{
+    color: #121110;
+    font-size: 18px;
+    font-weight: 400;
+    /* margin: 0 0 15px; */
+}
+.product-grid .price span{
+    color: #ccc;
+    text-decoration: line-through;
+    margin: 0 5px 0 0;
+}
+.product-grid .product-links{
+    font-size: 0;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.product-grid .product-links li{
+    font-size: 15px;
+    width: 25%;
+    display: inline-block;
+}
+.product-grid .product-links li a{
+    color: #c5c5c5;
+    padding: 12px 0 10px;
+    border: 1px solid #eee;
+    border-right: none;
+    display: block;
+    transition: all 0.3s ease 0s;
+}
+.product-grid .product-links li:first-child a{ border-radius: 5px 0 0 5px; }
+.product-grid .product-links li:last-child a{
+    border-radius: 0 5px 5px 0;
+    border-right: 1px solid #eee;
+}
+.product-grid .product-links li a:hover{
+    color: #999;
+    background-color: #e9e9e9;
+}
+@media screen and (max-width: 990px){
+    .product-grid{ margin-bottom: 30px; }
+}

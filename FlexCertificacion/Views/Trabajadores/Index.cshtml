@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Empleado>
+@{
+    ViewData["Title"] = "Empleados";
+}
+
+<div class="row">
+  <div class="col-md-12 grid-margin">
+    <div class="row">
+      <div class="col-12 col-xl-8 mb-4 mb-xl-0">
+        <h3 class="font-weight-bold">Empleados registrados</h3>
+        <h6 class="font-weight-normal mb-0"></h6>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <p class="card-title">Empleados registrados</p>
+        <a asp-action="Crear" class="btn btn-primary mb-3">Crear nuevo</a>
+        <div class="row">
+          <div class="col-12">
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                       <th>Nomina</th>
+                       <th>Nombre</th>
+                       <th>Apellido paterno</th>
+                       <th>Apellido Materno</th>
+                       <th>Supervisor</th>
+                       <th></th>
+                   </tr>
+                </thead>
+                <tbody>
+                  @foreach (var empleado in Model)
+                    {
+                        <tr>
+                            <td>@empleado.Id</td>
+                            <td>@empleado.Nombre</td>
+                            <td>@empleado.Apepat</td>
+                            <td>@empleado.Apemat</td>
+                            <td>@empleado.Supervisor</td>
+                            <td>
+                                <a class="btn btn-danger btn-sm" asp-action="Borrar" asp-route-id="@empleado.Id">Borrar</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
